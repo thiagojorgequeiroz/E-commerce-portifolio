@@ -1,0 +1,18 @@
+[
+  {
+    "ContainingType": "CatalogWebApi.Controllers.v1.CatalogController",
+    "Method": "Create",
+    "RelativePath": "v1/Catalog",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "commad",
+        "Type": "Catalog.Application.Contract.v1.Product.CreateProduct.CreateProductCommand",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

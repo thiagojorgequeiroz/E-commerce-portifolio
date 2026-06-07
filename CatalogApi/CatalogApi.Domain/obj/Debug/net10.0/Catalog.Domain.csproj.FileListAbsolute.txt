@@ -1,0 +1,11 @@
+C:\Users\thiag\source\repos\E-Comerce-Portfolio\CatalogApi\CatalogApi.Domain\bin\Debug\net10.0\Catalog.Domain.deps.json
+C:\Users\thiag\source\repos\E-Comerce-Portfolio\CatalogApi\CatalogApi.Domain\bin\Debug\net10.0\Catalog.Domain.dll
+C:\Users\thiag\source\repos\E-Comerce-Portfolio\CatalogApi\CatalogApi.Domain\bin\Debug\net10.0\Catalog.Domain.pdb
+C:\Users\thiag\source\repos\E-Comerce-Portfolio\CatalogApi\CatalogApi.Domain\obj\Debug\net10.0\Catalog.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\thiag\source\repos\E-Comerce-Portfolio\CatalogApi\CatalogApi.Domain\obj\Debug\net10.0\Catalog.Domain.AssemblyInfoInputs.cache
+C:\Users\thiag\source\repos\E-Comerce-Portfolio\CatalogApi\CatalogApi.Domain\obj\Debug\net10.0\Catalog.Domain.AssemblyInfo.cs
+C:\Users\thiag\source\repos\E-Comerce-Portfolio\CatalogApi\CatalogApi.Domain\obj\Debug\net10.0\Catalog.Domain.csproj.CoreCompileInputs.cache
+C:\Users\thiag\source\repos\E-Comerce-Portfolio\CatalogApi\CatalogApi.Domain\obj\Debug\net10.0\Catalog.Domain.dll
+C:\Users\thiag\source\repos\E-Comerce-Portfolio\CatalogApi\CatalogApi.Domain\obj\Debug\net10.0\refint\Catalog.Domain.dll
+C:\Users\thiag\source\repos\E-Comerce-Portfolio\CatalogApi\CatalogApi.Domain\obj\Debug\net10.0\Catalog.Domain.pdb
+C:\Users\thiag\source\repos\E-Comerce-Portfolio\CatalogApi\CatalogApi.Domain\obj\Debug\net10.0\ref\Catalog.Domain.dll

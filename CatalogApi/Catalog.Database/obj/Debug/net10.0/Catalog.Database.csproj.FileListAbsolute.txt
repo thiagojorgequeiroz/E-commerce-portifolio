@@ -1,0 +1,17 @@
+C:\Users\thiag\source\repos\E-Comerce-Portfolio\CatalogApi\Catalog.Database\bin\Debug\net10.0\Catalog.Database.deps.json
+C:\Users\thiag\source\repos\E-Comerce-Portfolio\CatalogApi\Catalog.Database\bin\Debug\net10.0\Catalog.Database.runtimeconfig.json
+C:\Users\thiag\source\repos\E-Comerce-Portfolio\CatalogApi\Catalog.Database\bin\Debug\net10.0\Catalog.Database.dll
+C:\Users\thiag\source\repos\E-Comerce-Portfolio\CatalogApi\Catalog.Database\bin\Debug\net10.0\Catalog.Database.pdb
+C:\Users\thiag\source\repos\E-Comerce-Portfolio\CatalogApi\Catalog.Database\bin\Debug\net10.0\Catalog.Domain.dll
+C:\Users\thiag\source\repos\E-Comerce-Portfolio\CatalogApi\Catalog.Database\bin\Debug\net10.0\Catalog.Domain.pdb
+C:\Users\thiag\source\repos\E-Comerce-Portfolio\CatalogApi\Catalog.Database\obj\Debug\net10.0\Catalog.Database.csproj.AssemblyReference.cache
+C:\Users\thiag\source\repos\E-Comerce-Portfolio\CatalogApi\Catalog.Database\obj\Debug\net10.0\Catalog.Database.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\thiag\source\repos\E-Comerce-Portfolio\CatalogApi\Catalog.Database\obj\Debug\net10.0\Catalog.Database.AssemblyInfoInputs.cache
+C:\Users\thiag\source\repos\E-Comerce-Portfolio\CatalogApi\Catalog.Database\obj\Debug\net10.0\Catalog.Database.AssemblyInfo.cs
+C:\Users\thiag\source\repos\E-Comerce-Portfolio\CatalogApi\Catalog.Database\obj\Debug\net10.0\Catalog.Database.csproj.CoreCompileInputs.cache
+C:\Users\thiag\source\repos\E-Comerce-Portfolio\CatalogApi\Catalog.Database\obj\Debug\net10.0\Catalog..45F84D59.Up2Date
+C:\Users\thiag\source\repos\E-Comerce-Portfolio\CatalogApi\Catalog.Database\obj\Debug\net10.0\Catalog.Database.dll
+C:\Users\thiag\source\repos\E-Comerce-Portfolio\CatalogApi\Catalog.Database\obj\Debug\net10.0\refint\Catalog.Database.dll
+C:\Users\thiag\source\repos\E-Comerce-Portfolio\CatalogApi\Catalog.Database\obj\Debug\net10.0\Catalog.Database.pdb
+C:\Users\thiag\source\repos\E-Comerce-Portfolio\CatalogApi\Catalog.Database\obj\Debug\net10.0\Catalog.Database.genruntimeconfig.cache
+C:\Users\thiag\source\repos\E-Comerce-Portfolio\CatalogApi\Catalog.Database\obj\Debug\net10.0\ref\Catalog.Database.dll

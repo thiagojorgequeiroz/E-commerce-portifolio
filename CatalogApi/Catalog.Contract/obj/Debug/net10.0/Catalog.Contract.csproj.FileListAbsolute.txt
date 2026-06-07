@@ -1,0 +1,12 @@
+C:\Users\thiag\source\repos\CatalogApi\Catalog.Contract\bin\Debug\net10.0\Catalog.Contract.deps.json
+C:\Users\thiag\source\repos\CatalogApi\Catalog.Contract\bin\Debug\net10.0\Catalog.Contract.dll
+C:\Users\thiag\source\repos\CatalogApi\Catalog.Contract\bin\Debug\net10.0\Catalog.Contract.pdb
+C:\Users\thiag\source\repos\CatalogApi\Catalog.Contract\obj\Debug\net10.0\Catalog.Contract.csproj.AssemblyReference.cache
+C:\Users\thiag\source\repos\CatalogApi\Catalog.Contract\obj\Debug\net10.0\Catalog.Contract.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\thiag\source\repos\CatalogApi\Catalog.Contract\obj\Debug\net10.0\Catalog.Contract.AssemblyInfoInputs.cache
+C:\Users\thiag\source\repos\CatalogApi\Catalog.Contract\obj\Debug\net10.0\Catalog.Contract.AssemblyInfo.cs
+C:\Users\thiag\source\repos\CatalogApi\Catalog.Contract\obj\Debug\net10.0\Catalog.Contract.csproj.CoreCompileInputs.cache
+C:\Users\thiag\source\repos\CatalogApi\Catalog.Contract\obj\Debug\net10.0\Catalog.Contract.dll
+C:\Users\thiag\source\repos\CatalogApi\Catalog.Contract\obj\Debug\net10.0\refint\Catalog.Contract.dll
+C:\Users\thiag\source\repos\CatalogApi\Catalog.Contract\obj\Debug\net10.0\Catalog.Contract.pdb
+C:\Users\thiag\source\repos\CatalogApi\Catalog.Contract\obj\Debug\net10.0\ref\Catalog.Contract.dll

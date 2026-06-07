@@ -1,0 +1,15 @@
+<Solution>
+  <Folder Name="/Application/">
+    <Project Path="Catalog.Application/Catalog.Application.csproj" Id="f9e69a21-ba29-416f-b332-91012a954f3f" />
+    <Project Path="Catalog.Command/Catalog.Application.Command.csproj" Id="d23dcfaa-f312-4c53-bfee-76670965ac78" />
+    <Project Path="Catalog.Contract/Catalog.Application.Contract.csproj" Id="6dbb123c-5770-48fb-b2be-682891f7e1db" />
+    <Project Path="Catalog.Query/Catalog.Application.Query.csproj" Id="da5552f4-a2ed-4324-b5b0-617dbc1c9689" />
+  </Folder>
+  <Folder Name="/Domain/">
+    <Project Path="CatalogApi.Domain/Catalog.Domain.csproj" Id="92e2877b-0251-458b-a9a9-7851bdc4aec3" />
+  </Folder>
+  <Folder Name="/Infrastructure/">
+    <Project Path="Catalog.Database/Catalog.Database.csproj" Id="3fce6387-120f-4b4a-b4b0-05d30af3f654" />
+    <Project Path="CatalogWebApi/CatalogWebApi.csproj" />
+  </Folder>
+</Solution>

@@ -1,0 +1,15 @@
+C:\Users\thiag\source\repos\E-Comerce-Portfolio\CatalogApi\Catalog.Command\bin\Debug\net10.0\Catalog.Application.Command.deps.json
+C:\Users\thiag\source\repos\E-Comerce-Portfolio\CatalogApi\Catalog.Command\bin\Debug\net10.0\Catalog.Application.Command.dll
+C:\Users\thiag\source\repos\E-Comerce-Portfolio\CatalogApi\Catalog.Command\bin\Debug\net10.0\Catalog.Application.Command.pdb
+C:\Users\thiag\source\repos\E-Comerce-Portfolio\CatalogApi\Catalog.Command\bin\Debug\net10.0\Catalog.Application.Contract.dll
+C:\Users\thiag\source\repos\E-Comerce-Portfolio\CatalogApi\Catalog.Command\bin\Debug\net10.0\Catalog.Application.Contract.pdb
+C:\Users\thiag\source\repos\E-Comerce-Portfolio\CatalogApi\Catalog.Command\obj\Debug\net10.0\Catalog.Application.Command.csproj.AssemblyReference.cache
+C:\Users\thiag\source\repos\E-Comerce-Portfolio\CatalogApi\Catalog.Command\obj\Debug\net10.0\Catalog.Application.Command.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\thiag\source\repos\E-Comerce-Portfolio\CatalogApi\Catalog.Command\obj\Debug\net10.0\Catalog.Application.Command.AssemblyInfoInputs.cache
+C:\Users\thiag\source\repos\E-Comerce-Portfolio\CatalogApi\Catalog.Command\obj\Debug\net10.0\Catalog.Application.Command.AssemblyInfo.cs
+C:\Users\thiag\source\repos\E-Comerce-Portfolio\CatalogApi\Catalog.Command\obj\Debug\net10.0\Catalog.Application.Command.csproj.CoreCompileInputs.cache
+C:\Users\thiag\source\repos\E-Comerce-Portfolio\CatalogApi\Catalog.Command\obj\Debug\net10.0\Catalog..50528EE6.Up2Date
+C:\Users\thiag\source\repos\E-Comerce-Portfolio\CatalogApi\Catalog.Command\obj\Debug\net10.0\Catalog.Application.Command.dll
+C:\Users\thiag\source\repos\E-Comerce-Portfolio\CatalogApi\Catalog.Command\obj\Debug\net10.0\refint\Catalog.Application.Command.dll
+C:\Users\thiag\source\repos\E-Comerce-Portfolio\CatalogApi\Catalog.Command\obj\Debug\net10.0\Catalog.Application.Command.pdb
+C:\Users\thiag\source\repos\E-Comerce-Portfolio\CatalogApi\Catalog.Command\obj\Debug\net10.0\ref\Catalog.Application.Command.dll
