@@ -11,7 +11,7 @@
 
         public Product(string name, string description, decimal price, bool isActive)
         {
-            Id = new Guid();
+            Id = Guid.CreateVersion7();
             Name = name;
             Description = description;
             Price = price;
