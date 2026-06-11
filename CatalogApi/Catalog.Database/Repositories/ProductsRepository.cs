@@ -1,5 +1,5 @@
 ﻿using Catalog.Database.Context;
-using Catalog.Domain.Models.Product;
+using Catalog.Domain.Entities;
 using Catalog.Domain.Respositories;
 
 namespace Catalog.Database.Repositories

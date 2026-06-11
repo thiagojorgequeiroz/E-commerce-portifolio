@@ -1,4 +1,4 @@
-﻿namespace Catalog.Domain.Models.Product
+﻿namespace Catalog.Domain.Entities
 {
     public class Product
     {
@@ -9,13 +9,12 @@
         public bool IsActive { get; set; }
         public DateTime CreatedAt { get; set; }
 
-        public Product(string name, string description, decimal price, bool isActive)
+        public Product(string name, string description, decimal price)
         {
             Id = Guid.CreateVersion7();
             Name = name;
             Description = description;
             Price = price;
-            IsActive = isActive;
         }
     }
 }

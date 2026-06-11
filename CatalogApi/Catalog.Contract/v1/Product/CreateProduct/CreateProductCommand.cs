@@ -1,22 +1,24 @@
-﻿using MediatR;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Runtime.Serialization;
-using System.Text;
+﻿using FluentValidation;
+using MediatR;
 
 namespace Catalog.Application.Contract.v1.Product.CreateProduct
 {
     public record CreateProductCommand : IRequest<Guid>
     {
-        public required Guid Id { get; init; }
+        public string? Name { get; init; }
 
-        public required string Name { get; init; }
+        public string? Description { get; init; }
 
-        public required string Description { get; init; }
+        public decimal? Price { get; init; }
+    }
 
-        public required decimal Price { get; init; }
-
-        public required bool IsActive { get; init; }
+    public class CreateProductCommandValidator : AbstractValidator<CreateProductCommand>
+    {
+        public CreateProductCommandValidator()
+        {
+            RuleFor(x => x.Name).NotEmpty().WithMessage("The product name is required.");
+            RuleFor(x => x.Description).NotEmpty().WithMessage("The product description is required.");
+            RuleFor(x => x.Price).GreaterThan(0).WithMessage("The product price must be greater than zero.");
+        }
     }
 }

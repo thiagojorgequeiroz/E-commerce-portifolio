@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Catalog.Contract\Catalog.Application.Contract.csproj" />
+    <ProjectReference Include="..\CatalogApi.Domain\Catalog.Domain.csproj" />
   </ItemGroup>
 
 </Project>

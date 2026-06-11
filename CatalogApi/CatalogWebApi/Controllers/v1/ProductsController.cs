@@ -8,7 +8,7 @@ namespace CatalogWebApi.Controllers.v1
     [ApiController]
     [ApiVersion("1.0")]
     [Route("v{version:apiVersion}/[controller]")]
-    public class CatalogController(IMediator mediator) : ControllerBase
+    public class ProductsController(IMediator mediator) : ControllerBase
     {
 
         [HttpPost]

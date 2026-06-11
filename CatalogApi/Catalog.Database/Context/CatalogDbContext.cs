@@ -1,4 +1,4 @@
-﻿using Catalog.Domain.Models.Product;
+﻿using Catalog.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace Catalog.Database.Context

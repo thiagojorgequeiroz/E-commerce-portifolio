@@ -1,4 +1,5 @@
 ﻿
+using Catalog.Application.Behaviors;
 using Catalog.Application.Command;
 using Catalog.Application.Contract;
 using Catalog.Application.Query;
@@ -18,6 +19,8 @@ namespace Catalog.Application.Extensions
                     typeof(ApplicationCommandAssemblyReference).Assembly);
                 cfg.RegisterServicesFromAssembly(
                     typeof(ApplicationQueryAssemblyReference).Assembly);
+
+                cfg.AddOpenBehavior(typeof(ValidationBehavior<,>));
             });
 
             services.AddValidatorsFromAssemblyContaining<ApplicationContractAssemblyReference>();

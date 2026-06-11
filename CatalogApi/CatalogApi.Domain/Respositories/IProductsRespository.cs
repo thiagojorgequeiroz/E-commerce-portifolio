@@ -1,4 +1,4 @@
-﻿using Catalog.Domain.Models.Product;
+﻿using Catalog.Domain.Entities;
 
 namespace Catalog.Domain.Respositories
 {
