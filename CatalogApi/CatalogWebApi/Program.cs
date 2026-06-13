@@ -2,6 +2,7 @@ using Catalog.Application.Extensions;
 using CatalogWebApi.ProgramConfiguration.Swagger.Extensions;
 using CatalogWebApi.ProgramConfiguration.Versioning;
 using Catalog.Database.ProgramConfiguration;
+using CatalogWebApi.ProgramConfiguration.Exceptions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,6 +20,8 @@ builder.Services.AddSwaggerDocumentation();
 
 builder.Services.AddDatabase(builder.Configuration);
 
+builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
+builder.Services.AddProblemDetails();
 
 var app = builder.Build();
 
@@ -33,6 +36,8 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.UseSwaggerDocumentation();
+
+app.UseExceptionHandler();
 
 app.MapControllers();
 

@@ -1,4 +1,5 @@
-﻿using FluentValidation;
+﻿using Catalog.Application.Exceptions;
+using FluentValidation;
 using MediatR;
 
 namespace Catalog.Application.Behaviors
@@ -39,7 +40,7 @@ namespace Catalog.Application.Behaviors
 
             if (failures.Any())
             {
-                throw new ValidationException(failures);
+                throw new ValidationAppException(failures);
             }
 
             return await next();
