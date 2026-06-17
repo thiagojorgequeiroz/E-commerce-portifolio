@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Diagnostics;
 
 namespace CatalogWebApi.ProgramConfiguration.Exceptions
 {
-    public class GlobalExceptionHandler : IExceptionHandler
+    public class GlobalExceptionHandler(ILogger<GlobalExceptionHandler> logger) : IExceptionHandler
     {
         public async ValueTask<bool> TryHandleAsync(HttpContext httpContext, Exception exception, CancellationToken cancellationToken)
         {
@@ -21,6 +21,10 @@ namespace CatalogWebApi.ProgramConfiguration.Exceptions
                     },
                     cancellationToken);
 
+                logger.LogWarning(
+                    validationException,
+                    validationException.Message);
+
                 return true;
             }
 
@@ -33,6 +37,11 @@ namespace CatalogWebApi.ProgramConfiguration.Exceptions
                     statusCode = appException.StatusCode,
                     detail = appException.Message,
                 }, cancellationToken);
+
+                logger.LogWarning(
+                    appException,
+                    appException.Message);
+
                 return true;
             }
 
@@ -44,6 +53,10 @@ namespace CatalogWebApi.ProgramConfiguration.Exceptions
                 statusCode = unexpectedException.StatusCode,
                 detail = unexpectedException.Message,
             }, cancellationToken);
+
+            logger.LogError(
+                exception,
+                unexpectedException.Message);
 
             return true;
         }

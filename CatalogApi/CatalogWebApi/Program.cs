@@ -1,8 +1,9 @@
 using Catalog.Application.Extensions;
-using CatalogWebApi.ProgramConfiguration.Swagger.Extensions;
-using CatalogWebApi.ProgramConfiguration.Versioning;
 using Catalog.Database.ProgramConfiguration;
 using CatalogWebApi.ProgramConfiguration.Exceptions;
+using CatalogWebApi.ProgramConfiguration.Swagger.Extensions;
+using CatalogWebApi.ProgramConfiguration.Versioning;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,6 +23,8 @@ builder.Services.AddDatabase(builder.Configuration);
 
 builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
 builder.Services.AddProblemDetails();
+
+builder.Host.UseSerilog();
 
 var app = builder.Build();
 
