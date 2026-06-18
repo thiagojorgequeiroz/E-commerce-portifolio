@@ -41,11 +41,11 @@ namespace Catalog.Application.Behaviors
                 }
                 finally
                 {
+                    stopwatch.Stop();
                     _logger.LogInformation(
                         "Handled {RequestType} in {ElapsedMilliseconds}ms",
                         typeof(TRequest).Name,
                         stopwatch.ElapsedMilliseconds);
-                    stopwatch.Stop();
                 }
             }
         }

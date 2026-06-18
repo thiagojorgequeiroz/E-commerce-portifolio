@@ -4,6 +4,7 @@ using Catalog.Application.Command;
 using Catalog.Application.Contract;
 using Catalog.Application.Query;
 using FluentValidation;
+using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Catalog.Application.Extensions
@@ -20,6 +21,7 @@ namespace Catalog.Application.Extensions
                 cfg.RegisterServicesFromAssembly(
                     typeof(ApplicationQueryAssemblyReference).Assembly);
 
+                cfg.AddOpenBehavior(typeof(LoggingBehavior<,>));
                 cfg.AddOpenBehavior(typeof(ValidationBehavior<,>));
             });
 
