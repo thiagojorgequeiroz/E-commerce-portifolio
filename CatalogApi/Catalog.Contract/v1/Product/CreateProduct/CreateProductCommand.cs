@@ -16,9 +16,9 @@ namespace Catalog.Application.Contract.v1.Product.CreateProduct
     {
         public CreateProductCommandValidator()
         {
-            RuleFor(x => x.Name).NotEmpty().WithMessage("The product name is required.");
-            RuleFor(x => x.Description).NotEmpty().WithMessage("The product description is required.");
-            RuleFor(x => x.Price).GreaterThan(0).WithMessage("The product price must be greater than zero.");
+            RuleFor(x => x.Name).NotNull().NotEmpty().WithMessage("The product name is required.");
+            RuleFor(x => x.Description).NotNull().NotEmpty().WithMessage("The product description is required.");
+            RuleFor(x => x.Price).NotNull().GreaterThan(0).WithMessage("The product price must be greater than zero.");
         }
     }
 }

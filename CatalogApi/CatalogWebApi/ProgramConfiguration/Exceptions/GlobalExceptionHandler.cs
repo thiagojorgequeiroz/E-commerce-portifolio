@@ -1,5 +1,7 @@
 ﻿using Catalog.Application.Exceptions;
+using Catalog.Domain.Exceptions;
 using Microsoft.AspNetCore.Diagnostics;
+using Microsoft.AspNetCore.Mvc;
 
 namespace CatalogWebApi.ProgramConfiguration.Exceptions
 {
@@ -9,17 +11,15 @@ namespace CatalogWebApi.ProgramConfiguration.Exceptions
         {
             if (exception is ValidationAppException validationException)
             {
+                var problem = new ValidationProblemDetails(validationException.Errors)
+                {
+                    Title = validationException.Title,
+                    Detail = validationException.Message,
+                    Status = validationException.StatusCode,
+                    Instance = httpContext.Request.Path
+                };
                 httpContext.Response.StatusCode = StatusCodes.Status400BadRequest;
-
-                await httpContext.Response.WriteAsJsonAsync(
-                    new
-                    {
-                        title = validationException.Title,
-                        statusCode = validationException.StatusCode,
-                        detail = validationException.Message,
-                        validationErrors = validationException.Errors
-                    },
-                    cancellationToken);
+                await httpContext.Response.WriteAsJsonAsync(problem, cancellationToken);
 
                 logger.LogWarning(
                     validationException,
@@ -30,13 +30,15 @@ namespace CatalogWebApi.ProgramConfiguration.Exceptions
 
             if (exception is AppException appException)
             {
-                httpContext.Response.StatusCode = appException.StatusCode;
-                await httpContext.Response.WriteAsJsonAsync(new
+                var problem = new ProblemDetails
                 {
-                    title = appException.Title,
-                    statusCode = appException.StatusCode,
-                    detail = appException.Message,
-                }, cancellationToken);
+                    Title = appException.Title,
+                    Detail = appException.Message,
+                    Status = appException.StatusCode,
+                    Instance = httpContext.Request.Path
+                };
+                httpContext.Response.StatusCode = appException.StatusCode;
+                await httpContext.Response.WriteAsJsonAsync(problem, cancellationToken);
 
                 logger.LogWarning(
                     appException,
@@ -45,14 +47,17 @@ namespace CatalogWebApi.ProgramConfiguration.Exceptions
                 return true;
             }
 
-            httpContext.Response.StatusCode = 500;
             var unexpectedException = new UnexpectedException();
-            await httpContext.Response.WriteAsJsonAsync(new
+
+            var unexpectedProblem = new ProblemDetails
             {
-                title = unexpectedException.Title,
-                statusCode = unexpectedException.StatusCode,
-                detail = unexpectedException.Message,
-            }, cancellationToken);
+                Title = unexpectedException.Title,
+                Detail = unexpectedException.Message,
+                Status = unexpectedException.StatusCode,
+                Instance = httpContext.Request.Path
+            };
+            httpContext.Response.StatusCode = 500;
+            await httpContext.Response.WriteAsJsonAsync(unexpectedProblem, cancellationToken);
 
             logger.LogError(
                 exception,

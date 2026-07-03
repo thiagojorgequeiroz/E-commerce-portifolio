@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Catalog.Application.Exceptions
+﻿namespace Catalog.Domain.Exceptions
 {
     public class BadRequestException : AppException
     {

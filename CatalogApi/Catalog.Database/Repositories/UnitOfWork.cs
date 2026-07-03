@@ -1,5 +1,8 @@
 ﻿using Catalog.Database.Context;
+using Catalog.Domain.Exceptions;
 using Catalog.Domain.Respositories;
+using Microsoft.EntityFrameworkCore;
+using Npgsql;
 
 namespace Catalog.Database.Repositories
 {
@@ -7,7 +10,14 @@ namespace Catalog.Database.Repositories
     {
         public async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {
-            return await context.SaveChangesAsync(cancellationToken);
+            try
+            {
+                return await context.SaveChangesAsync(cancellationToken);
+            }
+            catch (DbUpdateException ex) when (ex.InnerException is PostgresException pg)
+            {
+                throw new DatabaseException(pg.MessageText);
+            }
         }
     }
 }

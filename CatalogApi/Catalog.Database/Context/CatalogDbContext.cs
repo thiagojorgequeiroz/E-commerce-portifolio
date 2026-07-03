@@ -12,6 +12,7 @@ namespace Catalog.Database.Context
         }
 
         public DbSet<Product> Products => Set<Product>();
+        public DbSet<Inventory> Inventory => Set<Inventory>();
 
         protected override void OnModelCreating(
             ModelBuilder modelBuilder)

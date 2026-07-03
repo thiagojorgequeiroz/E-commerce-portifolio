@@ -12,10 +12,13 @@ namespace CatalogWebApi.Controllers.v1
     {
 
         [HttpPost]
+        [ProducesResponseType(typeof(Guid), StatusCodes.Status201Created)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> Create(CreateProductCommand commad)
         {
             var retorno = await mediator.Send(commad);
-            return Ok(retorno);
+            return CreatedAtAction(nameof(Create), new { id = retorno }, retorno);
         }
     }
 }

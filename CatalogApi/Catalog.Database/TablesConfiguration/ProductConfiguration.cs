@@ -18,6 +18,9 @@ namespace Catalog.Database.TablesConfiguration
                 .HasMaxLength(150)
                 .IsRequired();
 
+            builder.HasIndex(x => x.Name)
+                .IsUnique();
+
             builder.Property(x => x.Description)
                 .HasMaxLength(500)
                 .IsRequired();

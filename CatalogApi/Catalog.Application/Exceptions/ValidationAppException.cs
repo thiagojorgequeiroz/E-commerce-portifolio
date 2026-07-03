@@ -1,4 +1,5 @@
-﻿using FluentValidation.Results;
+﻿using Catalog.Domain.Exceptions;
+using FluentValidation.Results;
 
 namespace Catalog.Application.Exceptions
 {

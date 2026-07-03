@@ -1,4 +1,4 @@
-﻿namespace Catalog.Application.Exceptions
+﻿namespace Catalog.Domain.Exceptions
 {
     public abstract class AppException : Exception
     {
