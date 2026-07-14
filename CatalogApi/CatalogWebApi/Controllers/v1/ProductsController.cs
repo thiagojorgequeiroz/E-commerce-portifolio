@@ -1,5 +1,7 @@
 using Asp.Versioning;
+using Catalog.Application.Contract.v1.Commun;
 using Catalog.Application.Contract.v1.Product.CreateProduct;
+using Catalog.Application.Contract.v1.Product.GetProductById;
 using Catalog.Application.Contract.v1.Product.GetProducts;
 using Catalog.Application.Contract.v1.Product.UpdateProduct;
 using MediatR;
@@ -24,7 +26,7 @@ namespace CatalogWebApi.Controllers.v1
         }
 
         [HttpPut("{id}")]
-        [ProducesResponseType(typeof(Guid), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(CommunMessageResponse), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
@@ -46,13 +48,14 @@ namespace CatalogWebApi.Controllers.v1
         }
 
         [HttpGet("{id}")]
-        [ProducesResponseType(typeof(GetProductsQueryResponse), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(GetProductByIdQueryResponse), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> GetById(Guid id)
         {
-            var retorno = await mediator.Send(id);
+            var query = new GetProductByIdQueryRequest { Id = id };
+            var retorno = await mediator.Send(query);
             return Ok(retorno);
         }
     }
