@@ -3,6 +3,7 @@ using Catalog.Application.Contract.v1.Commun;
 using Catalog.Application.Contract.v1.Product.CreateProduct;
 using Catalog.Application.Contract.v1.Product.GetProductById;
 using Catalog.Application.Contract.v1.Product.GetProducts;
+using Catalog.Application.Contract.v1.Product.UpdateInventory;
 using Catalog.Application.Contract.v1.Product.UpdateProduct;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -56,6 +57,18 @@ namespace CatalogWebApi.Controllers.v1
         {
             var query = new GetProductByIdQueryRequest { Id = id };
             var retorno = await mediator.Send(query);
+            return Ok(retorno);
+        }
+
+        [HttpPut("{id}/inventory")]
+        [ProducesResponseType(typeof(CommunMessageResponse), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status404NotFound)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
+        public async Task<IActionResult> UpdateInventory(Guid id, UpdateInventoryCommand command)
+        {
+            command.Id = id;
+            var retorno = await mediator.Send(command);
             return Ok(retorno);
         }
     }

@@ -16,6 +16,14 @@
             UpdatedAt = DateTime.UtcNow;
         }
 
+        public void UpdateQuantity(int quantity)
+        {
+            if (quantity < 0)
+                throw new InvalidOperationException("Quantity cannot be negative.");
+            QuantityAvailable = quantity;
+            UpdatedAt = DateTime.UtcNow;
+        }
+
         public void AddStock(int quantity)
         {
             QuantityAvailable += quantity;

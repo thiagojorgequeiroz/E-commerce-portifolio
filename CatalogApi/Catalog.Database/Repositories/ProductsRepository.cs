@@ -18,7 +18,7 @@ namespace Catalog.Database.Repositories
 
         public async Task<Product> GetByIdAsync(Guid id, CancellationToken cancellationToken = default)
         {
-            return await context.Products.FindAsync(id, cancellationToken) ?? throw new NotFoundException("Product not found"); ;
+            return await context.Products.FindAsync(id, cancellationToken) ?? throw new NotFoundException("Inventory not found");
         }
     }
 }

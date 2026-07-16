@@ -46,6 +46,7 @@ namespace Catalog.Database.ProgramConfiguration
         private static void ConfigureRepositories(IServiceCollection services)
         {
             services.AddScoped<IProductsRespository, ProductsRepository>();
+            services.AddScoped<IInventoryRepository, InventoryRepository>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
         }
     }
