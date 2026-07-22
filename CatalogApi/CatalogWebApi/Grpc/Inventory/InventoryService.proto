@@ -6,6 +6,7 @@ package inventory;
 
 service InventoryService {
     rpc CheckStock(CheckStockRequest) returns (CheckStockResponse);
+    rpc ReserveStock(ReserveStockRequest) returns (ReserveStockResponse);
 }
 
 message CheckStockRequest {
@@ -15,4 +16,13 @@ message CheckStockRequest {
 
 message CheckStockResponse {
     bool available = 1;
+}
+
+message ReserveStockRequest {
+  string productId = 1;
+  int32 quantity = 2;
+}
+
+message ReserveStockResponse {
+  bool success = 1;
 }

@@ -1,4 +1,6 @@
-﻿namespace Catalog.Domain.Entities
+﻿using Catalog.Domain.Exceptions;
+
+namespace Catalog.Domain.Entities
 {
     public class Inventory
     {
@@ -32,8 +34,11 @@
 
         public void ReserveStock(int quantity)
         {
+            if (quantity <= 0)
+                throw new BadRequestException("Quantity to reserve must be greater than zero.");
+
             if (quantity > QuantityAvailable)
-                throw new InvalidOperationException("Insufficient stock.");
+                throw new BadRequestException("Insufficient stock.");
 
             QuantityAvailable -= quantity;
             QuantityReserved += quantity;

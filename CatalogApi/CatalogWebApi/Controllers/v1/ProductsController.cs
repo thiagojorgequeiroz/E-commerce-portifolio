@@ -9,8 +9,6 @@ using CatalogWebApi.Grpc.Inventory;
 using Grpc.Net.Client;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using CatalogWebApi.Grpc.Inventory;
-using Grpc.Net.Client;
 
 namespace CatalogWebApi.Controllers.v1
 {

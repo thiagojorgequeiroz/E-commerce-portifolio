@@ -19,5 +19,19 @@ namespace CatalogWebApi.Grpc.Inventory
                 Available = result.Available
             };
         }
+
+        public override async Task<ReserveStockResponse> ReserveStock(ReserveStockRequest request, ServerCallContext context)
+        {
+            var command = new ReserveStockCommand
+            {
+                ProductId = Guid.Parse(request.ProductId),
+                Quantity = request.Quantity
+            };
+            var result = await mediator.Send(command);
+            return new ReserveStockResponse
+            {
+                Success = result.Success
+            };
+        }
     }
 }
