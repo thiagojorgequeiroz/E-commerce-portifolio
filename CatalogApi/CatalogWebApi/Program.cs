@@ -1,6 +1,7 @@
 using Catalog.Application.Extensions;
 using Catalog.Database.ProgramConfiguration;
 using CatalogWebApi.ProgramConfiguration.Exceptions;
+using CatalogWebApi.ProgramConfiguration.Grpc;
 using CatalogWebApi.ProgramConfiguration.Swagger.Extensions;
 using CatalogWebApi.ProgramConfiguration.Versioning;
 using Serilog;
@@ -23,6 +24,8 @@ builder.Services.AddDatabase(builder.Configuration);
 
 builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
 builder.Services.AddProblemDetails();
+
+builder.Services.AddGrpcConfiguration();
 
 builder.Host.UseSerilog((context, configuration) =>
 {
@@ -48,5 +51,7 @@ app.UseSwaggerDocumentation();
 app.UseExceptionHandler();
 
 app.MapControllers();
+
+app.UseGrpc();
 
 app.Run();
