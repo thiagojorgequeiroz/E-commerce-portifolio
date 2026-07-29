@@ -44,5 +44,16 @@ namespace Catalog.Domain.Entities
             QuantityReserved += quantity;
             UpdatedAt = DateTime.UtcNow;
         }
+
+        public void ReleaseStock(int quantity)
+        {
+            if (quantity <= 0)
+                throw new BadRequestException("Quantity to release must be greater than zero.");
+            if (quantity > QuantityReserved)
+                throw new BadRequestException("Cannot release more stock than reserved.");
+            QuantityAvailable += quantity;
+            QuantityReserved -= quantity;
+            UpdatedAt = DateTime.UtcNow;
+        }
     }
 }

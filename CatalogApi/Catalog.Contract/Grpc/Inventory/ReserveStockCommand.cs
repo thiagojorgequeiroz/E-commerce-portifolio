@@ -1,5 +1,4 @@
-﻿using Catalog.Application.Contract.v1.Product.UpdateInventory;
-using FluentValidation;
+﻿using FluentValidation;
 using MediatR;
 
 namespace Catalog.Application.Contract.Grpc.Inventory
@@ -10,11 +9,12 @@ namespace Catalog.Application.Contract.Grpc.Inventory
         public int? Quantity { get; set; }
     }
 
-    public class ReserveStockCommandValidator : AbstractValidator<UpdateInventoryCommand>
+    public class ReserveStockCommandValidator : AbstractValidator<ReserveStockCommand>
     {
         public ReserveStockCommandValidator()
         {
-            RuleFor(x => x.Quantity).NotNull().GreaterThan(0).WithMessage("The inventory quantity to be reserved is requierd and must be greater than 0");
+            RuleFor(x => x.ProductId).NotNull().WithMessage("The product ID is required.");
+            RuleFor(x => x.Quantity).NotNull().GreaterThan(0).WithMessage("The quantity must be a positive number.");
         }
     }
 }

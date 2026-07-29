@@ -33,5 +33,19 @@ namespace CatalogWebApi.Grpc.Inventory
                 Success = result.Success
             };
         }
+
+        public override async Task<ReleaseStockResponse> ReleaseStock(ReleaseStockRequest request, ServerCallContext context)
+        {
+            var command = new ReleaseStockCommand
+            {
+                ProductId = Guid.Parse(request.ProductId),
+                Quantity = request.Quantity
+            };
+            var result = await mediator.Send(command);
+            return new ReleaseStockResponse
+            {
+                Success = result.Success
+            };
+        }
     }
 }
