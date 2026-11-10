@@ -11,7 +11,7 @@ namespace Catalog.Application.Query.Grpc.Inventory
         public async Task<CheckStockQueryResponse> Handle(CheckStockQueryRequest request, CancellationToken cancellationToken)
         {
             var response = await context.Inventory.AsNoTracking()
-                .Where(i => i.ProductId == request.ProductId)
+                .Where(i => i.Id == request.ProductId)
                 .Select(i => new CheckStockQueryResponse
                 {
                     Available = i.QuantityAvailable >= request.Quantity

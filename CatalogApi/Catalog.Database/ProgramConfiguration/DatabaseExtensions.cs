@@ -23,6 +23,17 @@ namespace Catalog.Database.ProgramConfiguration
             return services;
         }
 
+        public static void ApplyMigrations(this IServiceProvider serviceProvider)
+        {
+            var options = serviceProvider.GetRequiredService<IOptions<DatabaseOptions>>().Value;
+            if (!options.ApplyMigrationsOnStartup)
+                return;
+
+            using var scope = serviceProvider.CreateScope();
+            var context = scope.ServiceProvider.GetRequiredService<CatalogDbContext>();
+            context.Database.Migrate();
+        }
+
         private static void ConfigureOptions(IServiceCollection services, IConfiguration configuration)
         {
             services.AddOptions<DatabaseOptions>()

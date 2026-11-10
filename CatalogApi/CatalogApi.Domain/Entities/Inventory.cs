@@ -1,18 +1,16 @@
-﻿using Catalog.Domain.Exceptions;
+﻿using Catalog.Domain.Entities.Commun;
+using Catalog.Domain.Exceptions;
 
 namespace Catalog.Domain.Entities
 {
-    public class Inventory
+    public sealed class Inventory : EntityBase
     {
-        public Guid ProductId { get; private set; }
         public int QuantityAvailable { get; private set; }
         public int QuantityReserved { get; private set; }
-        public DateTime UpdatedAt { get; private set; }
         public Product Product { get; set; }
 
-        public Inventory(Guid productId)
+        public Inventory(Guid id) : base(id)
         {
-            ProductId = productId;
             QuantityAvailable = 0;
             QuantityReserved = 0;
             UpdatedAt = DateTime.UtcNow;
@@ -22,27 +20,27 @@ namespace Catalog.Domain.Entities
         {
             if (quantity < 0)
                 throw new InvalidOperationException("Quantity cannot be negative.");
+
             QuantityAvailable = quantity;
-            UpdatedAt = DateTime.UtcNow;
+            UpdateTimestamp();
         }
 
         public void AddStock(int quantity)
         {
             QuantityAvailable += quantity;
-            UpdatedAt = DateTime.UtcNow;
+            UpdateTimestamp();
         }
 
         public void ReserveStock(int quantity)
         {
             if (quantity <= 0)
                 throw new BadRequestException("Quantity to reserve must be greater than zero.");
-
             if (quantity > QuantityAvailable)
                 throw new BadRequestException("Insufficient stock.");
 
             QuantityAvailable -= quantity;
             QuantityReserved += quantity;
-            UpdatedAt = DateTime.UtcNow;
+            UpdateTimestamp();
         }
 
         public void ReleaseStock(int quantity)
@@ -51,9 +49,10 @@ namespace Catalog.Domain.Entities
                 throw new BadRequestException("Quantity to release must be greater than zero.");
             if (quantity > QuantityReserved)
                 throw new BadRequestException("Cannot release more stock than reserved.");
+
             QuantityAvailable += quantity;
             QuantityReserved -= quantity;
-            UpdatedAt = DateTime.UtcNow;
+            UpdateTimestamp();
         }
     }
 }

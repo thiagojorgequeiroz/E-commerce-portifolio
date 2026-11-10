@@ -13,6 +13,12 @@ FROM mcr.microsoft.com/dotnet/sdk:10.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 COPY ["CatalogWebApi/CatalogWebApi.csproj", "CatalogWebApi/"]
+COPY ["Catalog.Application/Catalog.Application.csproj", "Catalog.Application/"]
+COPY ["Catalog.Command/Catalog.Application.Command.csproj", "Catalog.Command/"]
+COPY ["Catalog.Contract/Catalog.Application.Contract.csproj", "Catalog.Contract/"]
+COPY ["Catalog.Query/Catalog.Application.Query.csproj", "Catalog.Query/"]
+COPY ["Catalog.Database/Catalog.Database.csproj", "Catalog.Database/"]
+COPY ["CatalogApi.Domain/Catalog.Domain.csproj", "CatalogApi.Domain/"]
 RUN dotnet restore "./CatalogWebApi/CatalogWebApi.csproj"
 COPY . .
 WORKDIR "/src/CatalogWebApi"
@@ -29,6 +35,7 @@ USER root
 RUN apt-get update && apt-get install -y \
     libgssapi-krb5-2 \
     && rm -rf /var/lib/apt/lists/*
+USER $APP_UID
 WORKDIR /app
 COPY --from=publish /app/publish .
 ENTRYPOINT ["dotnet", "CatalogWebApi.dll"]

@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Catalog.Database.Migrations
 {
     [DbContext(typeof(CatalogDbContext))]
-    [Migration("20260625005642_InventoryTable")]
-    partial class InventoryTable
+    [Migration("20261110221601_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -27,8 +27,13 @@ namespace Catalog.Database.Migrations
 
             modelBuilder.Entity("Catalog.Domain.Entities.Inventory", b =>
                 {
-                    b.Property<Guid>("ProductId")
+                    b.Property<Guid>("Id")
                         .HasColumnType("uuid");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("timestamp with time zone")
+                        .HasDefaultValueSql("CURRENT_TIMESTAMP");
 
                     b.Property<int>("QuantityAvailable")
                         .ValueGeneratedOnAdd()
@@ -43,7 +48,7 @@ namespace Catalog.Database.Migrations
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("timestamp with time zone");
 
-                    b.HasKey("ProductId");
+                    b.HasKey("Id");
 
                     b.ToTable("inventory", (string)null);
                 });
@@ -78,6 +83,9 @@ namespace Catalog.Database.Migrations
                         .HasPrecision(18, 2)
                         .HasColumnType("numeric(18,2)");
 
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("timestamp with time zone");
+
                     b.HasKey("Id");
 
                     b.HasIndex("Name")
@@ -90,7 +98,7 @@ namespace Catalog.Database.Migrations
                 {
                     b.HasOne("Catalog.Domain.Entities.Product", "Product")
                         .WithOne("Inventory")
-                        .HasForeignKey("Catalog.Domain.Entities.Inventory", "ProductId")
+                        .HasForeignKey("Catalog.Domain.Entities.Inventory", "Id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

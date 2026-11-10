@@ -1,6 +1,41 @@
-@CatalogWebApi_HostAddress = http://localhost:5202
+# Local run (dotnet run --launch-profile http): http://localhost:5202
+# Docker compose:                               http://localhost:8080
+@host = http://localhost:5202
+@productId = 00000000-0000-0000-0000-000000000000
 
-GET {{CatalogWebApi_HostAddress}}/weatherforecast/
+### Create product (returns the new id)
+POST {{host}}/v1/Products
+Content-Type: application/json
+
+{
+  "name": "Keyboard",
+  "description": "Mechanical keyboard",
+  "price": 199.90
+}
+
+### List products
+GET {{host}}/v1/Products?page=1&pageSize=10
 Accept: application/json
 
-###
+### Get product by id
+GET {{host}}/v1/Products/{{productId}}
+Accept: application/json
+
+### Update product
+PUT {{host}}/v1/Products/{{productId}}
+Content-Type: application/json
+
+{
+  "name": "Keyboard",
+  "description": "Mechanical keyboard (ABNT2)",
+  "price": 219.90,
+  "isActive": true
+}
+
+### Update inventory quantity
+PUT {{host}}/v1/Products/{{productId}}/inventory
+Content-Type: application/json
+
+{
+  "quantity": 10
+}

@@ -10,11 +10,11 @@ namespace Catalog.Database.TablesConfiguration
         {
             builder.ToTable("inventory");
 
-            builder.HasKey(x => x.ProductId);
+            builder.HasKey(x => x.Id);
 
             builder.HasOne(x => x.Product)
                 .WithOne(p => p.Inventory)
-                .HasForeignKey<Inventory>(x => x.ProductId)
+                .HasForeignKey<Inventory>(x => x.Id)
                 .OnDelete(DeleteBehavior.Cascade);
 
             builder.Property(x => x.QuantityAvailable)
@@ -24,6 +24,10 @@ namespace Catalog.Database.TablesConfiguration
             builder.Property(x => x.QuantityReserved)
                 .IsRequired()
                 .HasDefaultValue(0);
+
+            builder.Property(x => x.CreatedAt)
+                .HasDefaultValueSql("CURRENT_TIMESTAMP")
+                .ValueGeneratedOnAdd();
 
             builder.Property(x => x.UpdatedAt)
                 .IsRequired();

@@ -6,5 +6,7 @@ namespace Catalog.Database.ProgramConfiguration
     {
         [Required]
         public string ConnectionString { get; set; } = string.Empty;
+
+        public bool ApplyMigrationsOnStartup { get; set; }
     }
 }

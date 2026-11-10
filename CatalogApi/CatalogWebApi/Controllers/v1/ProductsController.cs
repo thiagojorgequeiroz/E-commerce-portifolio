@@ -5,8 +5,6 @@ using Catalog.Application.Contract.v1.Product.GetProductById;
 using Catalog.Application.Contract.v1.Product.GetProducts;
 using Catalog.Application.Contract.v1.Product.UpdateInventory;
 using Catalog.Application.Contract.v1.Product.UpdateProduct;
-using CatalogWebApi.Grpc.Inventory;
-using Grpc.Net.Client;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -57,18 +55,6 @@ namespace CatalogWebApi.Controllers.v1
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> GetById(Guid id)
         {
-            using var channel = GrpcChannel.ForAddress("https://localhost:7245");
-
-            var client = new InventoryService.InventoryServiceClient(channel);
-
-            var response = await client.CheckStockAsync(
-                new CheckStockRequest
-                {
-                    ProductId = id.ToString(),
-                    Quantity = 1
-                });
-
-            Console.WriteLine(response.Available);
             var query = new GetProductByIdQueryRequest { Id = id };
             var retorno = await mediator.Send(query);
             return Ok(retorno);
